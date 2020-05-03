@@ -1,6 +1,6 @@
 <?php
    include ('Conexion.php');
-   class validarUsuario
+   class validarusuario
    {
    public function ValidarUser ($user, $pass)
      {

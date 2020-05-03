@@ -1,6 +1,6 @@
 <?php
   include ('validarusuario.php')
-  $validar = new validarUsuario;
+  $validar = new validarusuario;
 
   $NOMBRE=$_POST['NOMBRE'];
   $CONTRASEÑA=$_POST['CONTRASEÑA'];
