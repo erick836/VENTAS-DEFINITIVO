@@ -1,8 +1,8 @@
 <?php
    include ('Conexion.php');
-   class validarusuario
+   class validarUser
    {
-   public function ValidarUser ($user, $pass)
+   public function validarusuario ($user, $pass)
      {
       $us = new Conexion();
       $q= "SELECT * FROM `iusuarios` WHERE `User`='$user' AND`Password` ='$pass';";

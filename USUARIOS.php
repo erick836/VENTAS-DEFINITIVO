@@ -1,11 +1,11 @@
 <?php
   include ('validarusuario.php')
-  $validar = new validarusuario;
+  $validar = new validarUser;
 
   $NOMBRE=$_POST['NOMBRE'];
   $CONTRASEÑA=$_POST['CONTRASEÑA'];
 
-  $resultado=$validar-> ValidarUser ($NOMBRE, $CONTRASEÑA);
+  $resultado=$validar-> validarusuario ($NOMBRE, $CONTRASEÑA);
 
   var_dump($resultado);
 
