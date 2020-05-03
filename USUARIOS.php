@@ -14,13 +14,9 @@
   if($resultado->num_rows == 1)
   {
     header("location:ventas.html");
-	echo "User ok";
   }
   else 
   {
-  header("location:index.html");
-	echo "no user ";
-  
-	
+    header("location:index.html");
   }
 ?>
