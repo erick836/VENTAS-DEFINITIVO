@@ -1,6 +1,9 @@
-<html>
+<!doctype html>
 <head>
     <link rel="stylesheet" type="text/css" href="Estilos.css" />
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>REGISTRO</title>
 </head>
 <body>
@@ -12,21 +15,26 @@
     </header>
   
     <section>
-       <div align="center" id="CONTENIDO">
+       <div  id="CONTENIDO">
           <form method="post" action="USUARIOS.php">
-            <label for="NOMBRE" >NOMBRE</label>
-            <input type="text" name="NOMBRE" />
-            <br /><br/>
-			<label for="CONTRASEÑA">CONTRASEÑA</label>
-            <input type="password" name="CONTRASEÑA" />
-            <br /><br/>
-			<input type="submit" id="button" value="INGRESAR" />
+		    <div class="form-group">
+			  <label for="NOMBRE" >NOMBRE</label>
+              <input type="text" name="NOMBRE" class="form-control" placeholder="INGRESE NOMBRE" required>
+			</div>
+			<div class="form-group">
+			  <label for="CONTRASEÑA">CLAVE</label>
+              <input type="password" class="form-control" name="CONTRASEÑA" placeholder="INGRESE CLAVE" required>
+			</div>          
+			<div class="form-group" align="center">
+			  <input type="submit" value="INGRESAR" class="btn btn-primary btn-lg" required>
+			</div>
+			
           </form>
        </div>
     </section>
 
     <footer align="center" id="PIE">
-          <p>Erick Chávez y Amilcar Corado &copy; 2020 </p>  
+          <p>Erick Chavez y Amilcar Corado &copy; 2020 </p>  
     </footer> 
 </body>
 </html>
