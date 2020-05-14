@@ -19,6 +19,6 @@
   
   else 
   {
-   header("location:ventas.html");
+   header("location:ventas.php");
   } 
 ?>
