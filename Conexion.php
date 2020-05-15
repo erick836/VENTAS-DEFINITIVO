@@ -4,7 +4,7 @@
     public function __construct()
     {
       $servidor="localhost";
-      $basedatos="base de datos";
+      $basedatos="basededatos";
       $usuario="root";
       $contraseña="";
 

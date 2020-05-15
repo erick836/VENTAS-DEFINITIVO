@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
     <head>
-	 <link rel="stylesheet" type="text/css" href="Estilos.css" />
+	 <link rel="stylesheet" type="text/css" href="estilos.css" />
 	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -11,57 +11,59 @@
 	    <div align="center" id="VENTAS">
 		  <h1>VENTAS</h1>
 	    </div>
-		<div align="right">
-		    <button type="button" class="btn btn-light">
-			   <a href="index.html">SALIR</a>
-			</button>      
-        </div>
-		<?php
-            if(isset($_GET['producto']))
-            {
-                include('Conexion.php');
-                $con = new Conexion();
-                $producto=$_GET['producto'];
-                $precio=$_GET['precio'];
-
-                $query="INSERT INTO `carrito`( `producto`, `precio`) VALUES ('$producto','$precio');";
-                $consulta=$con->query($query);
-                $con->close();
-                ?>
-                  <table align="center" border=1>
-                    <tr>
-                        <td>
-                            <p>Producto</p>
-                        </td>
-                        <td>
-                            <p>Precio</p>
-                        </td>
-                    </tr>
-                    <?php 
-                         $con = new Conexion();
-                         $query="SELECT * FROM `carrito` WHERE 1;";
-                         $pro=$con->query($query);
-                         $con->close();
-                        
-                         while($row=mysqli_fetch_assoc($pro))
-                         {
-                            echo 
-							"
-                                <tr>
-                                    <td>
-                                        <p>".$row['producto']."</p>
-                                    </td>
-                                    <td>
-                                        <p>".$row['precio']."</p>
-                                    </td>
-                                </tr>
-                            ";
-                         }
-                    ?>
-                  </table>
-                <?php                   
-            }
-        ?>
+		<div>
+		   <div align="right">
+			   <button type="button" class="btn btn-light">
+				   <a href="datos.php">FINALIZAR COMPRA</a>
+			   </button> 
+		   </div>
+		   <div class="text-white">
+		   <?php
+				if(isset($_GET['producto']))
+				{
+				   include('Conexion.php');
+				   $con=new Conexion();
+				   $producto=$_GET['producto'];
+				   $precio=$_GET['precio'];				   
+				   $query="INSERT INTO `carrito`(`producto`, `precio`) VALUES ('$producto','$precio');";
+				   $consulta=$con->query($query);
+				   $con->close();				  
+				?>	
+				  <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+					  <div class="btn-group" role="group">
+						<button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  CARRITO
+						</button>
+						<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+						   <?php
+							 $con=new Conexion();
+						     $query="SELECT * FROM `carrito` WHERE 1;";
+							 $pro=$con->query($query);
+							 $con->close();	
+							 $total=0;
+							 while($row=mysqli_fetch_assoc($pro))
+							 {							   							   
+							   echo "
+								  <p>".$row['producto']." --- ".$row['precio']."</p>								  
+							   ";
+							   $total=($total+$row['precio']);
+							   ?>
+							     <div class="dropdown-divider"></div>								 
+							   <?php							     
+							 } 
+							 ?>
+							   <p>TOTAL=<?php echo $total; ?> </p>
+							   <div class="dropdown-divider"></div>
+							 <?php
+						   ?> 	
+						</div>
+					  </div>  
+				  </div>
+				<?php
+				}       
+           ?>
+		</div>      
+    </div>		
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" align="center">         
           <div class="carousel-inner">
              <div class="carousel-item active">
@@ -90,7 +92,7 @@
 				     </h5>	 
 			   </div>		  
                <button type="button" class="btn btn-light">
-			     <p><a href="?producto=SPIDEY&precio=600">COMPRAR</a></p>
+			     <p><a href="?producto=SPIDER&precio=600">COMPRAR</a></p>
 			   </button>  
              </div>
              <div class="carousel-item">
